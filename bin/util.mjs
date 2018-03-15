@@ -86,11 +86,15 @@ export default {
             code = code.substring(0, code.length - matches[0].length);
 
         if (codeFormat)
-            code = code.substring(codeFormat.length + 1, code.length);
+            code = code.substring(codeFormat.length, code.length);
 
         code = code.replace(/\\/g, '\r\n');
 
-        return code;
+        return code.trim();
+    },
+
+    getChannel(channel) {
+        return (channel.startsWith('#') ? channel.substring(1) : channel);
     }
 }
 
